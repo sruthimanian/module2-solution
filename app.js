@@ -23,7 +23,7 @@ function ToBuyController(ShoppingListCheckOffService)
 		catch(error)
 		{
 			toBuy.errorMessage = error.message;
-			console.log('hello error');
+			
 		}
 	};
 
@@ -34,8 +34,11 @@ function AlreadyBoughtController(ShoppingListCheckOffService)
 
 {
 	var bought = this;
+	console.log("Controller");
+	
 	bought.items = ShoppingListCheckOffService.boughtItems();
-
+	
+	
 };
 
 function ShoppingListCheckOffService()
@@ -65,7 +68,7 @@ function ShoppingListCheckOffService()
 	
 	var bought=[];
 	var zero=0;
-	console.log(zero);
+	
 	
 	service.getItems = function () {
 	console.log(to_buy);
@@ -73,7 +76,26 @@ function ShoppingListCheckOffService()
 	};
 	service.boughtItems=function()
 	{
+		
 		return bought;
+	}
+	service.error=function()
+	{
+		if(bought.length===0)
+		{
+		console.log("hi3");
+			
+			
+		
+		}
+		else
+		{
+		console.log("hi1");
+			return " ";
+		
+		}
+		
+	
 	
 	};
 	
@@ -82,15 +104,17 @@ function ShoppingListCheckOffService()
 	
 		if(to_buy.length > 1 )
 		{
+		console.log("hi2");
 		bought.push(to_buy[itemIndex]);
 		to_buy.splice(itemIndex,1);
-		console.log(to_buy.length);
+		
+		
 		}
 		else
 		{
 		
-		bought.push(to_buy[itemIndex]);
-		to_buy.splice(itemIndex,1);
+			bought.push(to_buy[itemIndex]);
+			to_buy.splice(itemIndex,1);
 			throw new Error("Everything is bought!");
 		
 		}
