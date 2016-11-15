@@ -50,7 +50,7 @@
 	   
 	   </li>
      </ul>
-     <div ng-if="bought.errorMessage"class="emptyMessage">{{ bought.errorMessage}}</div>
+     <div ng-if="!bought.items.length" class="emptyMessage">{{ bought.error}}</div>
     </div>
   </div>
 </div>

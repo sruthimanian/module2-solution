@@ -37,7 +37,7 @@ function AlreadyBoughtController(ShoppingListCheckOffService)
 	console.log("Controller");
 	
 	bought.items = ShoppingListCheckOffService.boughtItems();
-	
+	bought.error= "Nothing bought yet";
 	
 };
 
@@ -79,25 +79,7 @@ function ShoppingListCheckOffService()
 		
 		return bought;
 	}
-	service.error=function()
-	{
-		if(bought.length===0)
-		{
-		console.log("hi3");
-			
-			
-		
-		}
-		else
-		{
-		console.log("hi1");
-			return " ";
-		
-		}
-		
 	
-	
-	};
 	
 	service.moveTo=function(itemIndex)
 	{
